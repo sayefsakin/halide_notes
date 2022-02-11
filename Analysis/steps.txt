@@ -1,0 +1,70 @@
+This constains executions for four functions (check the program sayef_halid_test.ph)
+- load the interface
+- load PAPI_TOT_CYC
+- load PAPI_BR_MSP
+- load PAPI_TOT_INS
+- check online the PAPI meaning (https://www.cs.uoregon.edu/research/tau/docs/newguide/ch03s06.html)
+- load PAPI_L1_DCM
+- load PAPI_L2_DCM
+- load PAPI_LD_INS
+- load PAPI_SR_INS
+- close window PAPI_BR_MSP
+- close window PAPI_TOT_INS
+- Notices the L1_DCM change with the utilization.
+- Trying to find out correlation with other PAPI charts
+- found correlation with the L2_DCM (increased after the first two exeucution is finished)
+- clicking on the long interval between the first two executions (its just run_as_hpx_thread (non-void)), maybe this is spawning the intervals for the second executions
+- check the long interval before the first execution. it is the same (run_as_hpx_thread (non-void)),
+- load Dependency tree view
+- check the subtree for primitive 'run_as_hpx_thread (non-void)', it does not spawn hpx_halide_for
+- intervals for 'dgemm_halide' start right after 'run_as_hpx_thread (non-void)' (though they dont have any parent-child dependency). these are in different subtree.
+- zoomed in before the first execution and make sure of the prevoius point.
+
+- zoomed out to view the whole execution.
+- notied there are some smaller interval between the 2nd and 3rd, 3rd and 4th execution.
+- checked in the dependency tree. they are in the subtree rooted at primitive 'dgemm_halide_in'.
+- noticed 3 longer interval bars between 2nd and 3rd. (similarly there are also 3 longer bars between the 3rd and 4th execution).
+- clicked on the rightmost longer bar. its primitive name '/phylanx$0/access-argument$10$N/3$34$20'.
+- track down this primitive in the sub-tree rooted at 'dgemm_halide_in'.
+- found 3 of them (other 2 names '/phylanx$0/access-argument$9$N/3$33$20' and '/phylanx$0/access-argument$8$N/3$32$20').
+- noticed their roots ('/phylanx$0/variable$4$C/3$34$4', '/phylanx$0/variable$3$B/3$33$4', '/phylanx$0/variable$2$A/3$32$4')
+- clicked on these nodes and visually confirm from the gantt view that the longer 3 bars are getting highlighted.
+- load interval histogram view and confirmed that '/phylanx$0/access-argument$9$N/3$33$20' has only one occurence
+
+- close window LD_INS and SR_INS
+- in the code, N=2048
+- N/16 = 128
+- in gantt starts counting the hpx_halide_for intervals for each execution.
+> in the first exection
+- 10 locations got 4 intervals (consecutive and same length)
+- 2 locations got 3 intervals  (consecutive and same length)
+- 2 locations got 4 intervals (consecutive and same length, but smaller than the first 40)
+- 2 locations got 5 intervals (consecutive and same length)
+- total count is 40+6+8+10=64 (N/32)
+- check in the dependency tree, found hpx_halide_for in two places rooted from 'dgemm_halide'.
+- one has count 4 in the first execution (sub-tree from '/phylanx$0/access-argument$1$A/0$12$38')
+- the other has count 16 (sub-tree from '/phylanx$0/access-argument$0$alpha/0$12$31') (this summed up to 84, may be still missed some very very smaller ones)
+- clicked on that node to highlight in the gantt.
+- while zoomed in the gantt, notied the bump in the L1_DCM and L2_DCM. (check the picture 10Feb22_papi_l1_bump.JPG)
+- drag the brush in the utilization view to the start of second execution.
+- here no bump in L1/L2_DCM but found a decrease, when utilization peaked (noticed in the agg gant view) (check the picture 10Feb22_papi_l1_bump2.JPG)
+- slight bump notied for the 3rd execution but no bump noticed for the 4th execution (maybe because the values were already loaded for the previous execution)
+
+- further inspection with the hpx_halide_for count
+- found 12 more with the smaller one, distributed over 4 different locations (previously I thought it was 4) (confirmed it with the agg gantt view)
+********** another use case for agg gant that to count very smaller distinct intervals***********************
+- found 48 more (previously I thougth it was 16)
+- found more 14 smaller ones.
+- total 
+-- previous 64 
+-- new 12+48+14
+- found more smaller ones, seems like this is not going anywhere
+- using the interval histogram view, Guessing that may be smaller ones happen before each the larger ones.
+
+Key takeaways
+- L1/L2_DCM bump at the end of each execution when utilization decreases
+- A, B, C access variable and argument at the 3rd and 4th execution is not parallel (thus extending the exectution time)
+- hpx_halide_for total count doesnt add up
+- L1/L2_DCM bump in first execution. (maybe this is indicative that, the shorter execution time results from the reduced data load time from the cache)
+-- need to test with a single run and compare between them
+

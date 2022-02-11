@@ -1,0 +1,21 @@
+Try to run a BLAS program by using its one of the accelerated implementations and try to visualize its benchmark using intel VTune.
+Do the same with BLAS+HALID+HPX and try to visualize its benchmark using intel VTune.
+Find out key differneces.
+Try to find out the same differneces from the benchmark generated with APEX.
+======if we are able to find something out with this======= then,
+- we could design an interview session with random (expert) users, and tell them to find something using VTune and Traveler. compare the performance.
+-- ask to find some pre-determined features
+---- performance differences
+---- a specific term (for example L1 cache miss) which could be found by Traveler but not with VTune and vice-versa.
+-- ask to find something new
+
+OR
+
+(we could show them it is possible by doing these ourselves) (is there any way to quantify this?)
+- try to find some way, how a parllel application developer can integrate/use Traveler in his development pipeline.
+-- debugging
+-- regression testing
+
+OR
+
+- try to find some way, how a programmer can integrate/use Traveler in his performance data collection pipeline.

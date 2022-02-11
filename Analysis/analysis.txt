@@ -1,0 +1,1 @@
+Found some correlation between reduction in utilization and L1 data cache miss (PAPI_L1_DCM). check the 2Feb22.JPG.

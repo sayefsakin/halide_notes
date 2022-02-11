@@ -1,0 +1,17 @@
+PAPI views
+- explanation of rate and PAPI abbreviation
+
+Interval histogram view
+- hover to show count
+- filter by the subtree of dependency tree
+- 
+
+Utilization view
+- highlight smaller counts
+- agg gantt inverse (draw a demo pic and show to Kate and Rod)
+
+
+Bugs
+- some error in the console for "Error: <rect> attribute width: A negative value is not valid. ("-225.74117881076995")"
+- Functional box plot > Cannot read properties of undefined (reading 'toFixed'), it comes from updateCursor
+- while drugging the brush in the utilization view, sometimes the functional box plot view failed to load. (maybe becuase of the bug mentioned in the previous points)
