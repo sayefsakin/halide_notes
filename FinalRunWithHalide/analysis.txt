@@ -1,0 +1,9 @@
+/phylanx$0/lambda$0/0$11$0
+aggregated block
+ENTER time: 282381357
+LEAVE time: 363644751 / 370786121
+
+
+Intervals at least as long as 3395262 ns
+and at most as long as 13191635 ns
+that belong to primitive halide_hpx_for

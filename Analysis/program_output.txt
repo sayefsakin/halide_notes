@@ -1,0 +1,15 @@
+environment variables
+---------------------------------------------------
+export APEX_PROC_LOADAVG=1
+export APEX_PROC_MEMINFO=1
+export APEX_PROC_SELF_STATUS=1
+export APEX_PROC_STAT=1
+export APEX_PROC_PERIOD=1000000
+export APEX_PAPI_METRICS="PAPI_TOT_CYC PAPI_BR_MSP PAPI_TOT_INS PAPI_BR_INS PAPI_LD_INS PAPI_SR_INS PAPI_L1_DCM PAPI_L2_DCM"
+
+APEX_OTF2_ARCHIVE_PATH=/home/sayefsakin/halide_test/OTF2_archive APEX_OTF2=1 python3 sayef_halide_test.py
+
+output
+------------------------------------------
+halide 0.18363285064697266
+halide_in 0.15811395645141602

@@ -1,1 +1,11 @@
 Found some correlation between reduction in utilization and L1 data cache miss (PAPI_L1_DCM). check the 2Feb22.JPG.
+
+
+things to point out 
+- Found some correlation between reduction in utilization and L1 data cache miss (PAPI_L1_DCM). check the 2Feb22.JPG.
+- is there any update with the halide/blais work
+- without the halide/blais integration
+- access argument A, B, C
+	(for the send run, it takes some time to load A,B,C)
+	( /phylanx$0/variable$2$A/3$32$4, also for B and C)
+- you want to do a clean run (without Halid integration), what is needed to do for that

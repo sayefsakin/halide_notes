@@ -1,0 +1,12 @@
+/phylanx$0/lambda$0/0$11$0
+aggregated block
+ENTER time: 617246501
+LEAVE time: 787753078
+
+
+interval bars are longer on average compared to the halide case
+
+
+Intervals at least as long as 24948919 ns
+and at most as long as 81883002 ns
+that belong to primitive /phylanx$0/blaze_dgemm$0/0$17$11
