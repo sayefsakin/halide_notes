@@ -7,3 +7,37 @@ LEAVE time: 363644751 / 370786121
 Intervals at least as long as 3395262 ns
 and at most as long as 13191635 ns
 that belong to primitive halide_hpx_for
+
+
+
+
+
+clicking on /phylanx$0/block$0/0$1$44 in dependency tree view,
+in the aggregated gantt view, noticed 3 distinct boxes. it is indicative that variable loading for A, B, C are loading serially (these could be loaded in parallel)
+
+Found similar in the blaze dataset
+
+
+=========================================
+in the halide dataset
+load interval histogram view
+find the longest interval (right most one) dragged the brash on it to highlight that in the gantt view.
+clicked on the gantt view to view its duration 1st(Enter: 235367203, LEAVE: 247691514) 2nd(Enter: 314900988, LEAVE: 328092623)
+
+Does the same with the blaze dataset
+longest duration 1st(Enter: 439936168, LEAVE: 521819170) 2nd(Enter: 705607390, LEAVE: 737521275)
+
+
+================================================
+
+in the blaze dataset (for the 2nd execution)
+L1_DCM bumps (max increases from 0.04 to 0.14, avg 0.05) in the middle which is also analogous to LD_INS (max 2.67, avg 0.57)
+avg TOT_CYC is from 2.43 to 3.60
+PAPI_LD_INS and PAPI_SR_INS starts with high bump to low to medium (fluctuates)
+------------------------------
+in the halide dataset (for the 2nd execution)
+found L1_DCM(max increases from 0.06 to 0.51, avg 0.16) bumps in the middle but not analogous to LD_INS , has smaller bump in L2_DCM.
+has bumps in LD_INS but very small (max is 1.21)
+in this case, the bump is more on the right compared to the blaze
+avg TOT_CYC is from 3.38 to 1.93
+PAPI_LD_INS and PAPI_SR_INS consistant overall (fluctuates less)
