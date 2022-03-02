@@ -12,7 +12,7 @@ An illustrative video can be found [here](https://www.dropbox.com/s/hx3gjpbwnyrw
   - Line Chart View
   - Aggregated Gantt View
 - Ancillary views
-  - Interval Histogram
+  - Interval Histogram View
   - Dependency Tree View
 - Informative Views
   - Selection Info View
