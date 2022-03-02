@@ -14,6 +14,8 @@ location 0.
 - Task 2: Find the primitive name for the task execution with most occurrence.
 - Task 3: Pinpoint variable `A,B,C` instantiation time.
 
+You can try this on your own, one way to do each is listed below,
+
 [comment]: <> (&#40;You might want to try doing these tasks in your own before reading through the following description&#41;)
 ### Task 1
 The following picture is the first page when visiting [Traveler](https://traveler-integrated.herokuapp.com) with the default provided dataset. Reload it to 
