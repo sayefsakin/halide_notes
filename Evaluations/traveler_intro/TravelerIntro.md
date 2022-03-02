@@ -92,3 +92,7 @@ Notice, the `halide_hpx_for` has darker blue color compared to other nodes which
 In the **aggregated gantt view**, overlapped aggregated bars are presented with an additional row and color coded with different shades of purple color. 
 Interval bars in the **gantt view** are also being colored with the same shade of purple corresponding to the aggregated bar (to which these bars belong to) in 
 the **aggregated gantt view**. The task name is also written with each aggregated bar and associated CPU utilization is drawn within the aggregated bar.
+
+
+-----------------------------
+_All these screenshots of Traveler are taken while using Google Chrome running in dark mode._
