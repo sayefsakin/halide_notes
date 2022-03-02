@@ -1,7 +1,7 @@
 Traveler Features
 ==========================
 
-An illustrative video can be found [here](https://www.dropbox.com/s/hx3gjpbwnyrwkz5/TravelerIntro.mp4?dl=0).
+An illustrative video can be found [here](https://www.dropbox.com/s/4ng58zygl6v1485/TravelerFeatureDemo.mp4?dl=0).
 
 ### Available Views
 
