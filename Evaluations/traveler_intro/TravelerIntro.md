@@ -1,33 +1,63 @@
 Traveler Features
----------------------------
+==========================
 
+An illustrative video can be found [here](https://www.dropbox.com/s/hx3gjpbwnyrwkz5/TravelerIntro.mp4?dl=0).
 
-Available Views
-- Gantt View
-- Utilization View
-- Selection Info View
-- Code View
+### Available Views
 
-- Functional Box Plot
-- Line Chart View
+- Timeline Views 
+  - Gantt View
+  - Utilization View
+  - Functional Box Plot
+  - Line Chart View
+  - Aggregated Gantt
+- Ancillary views
+  - Interval Histogram
+  - Task Dependency Tree
+- Informative Views
+  - Selection Info View
+  - Code View
 
-- Interval Histogram
-- Task Dependency Tree
-- Aggregated Gantt
+### Introduction
+Traveler is an integrated visualization system for asynchronous multitask execution. It is hosted at this link https://traveler-integrated.herokuapp.com/. 
+![Traveler Interface](01.png)
 
+In this figure, execution data from a [sample](https://github.com/sayefsakin/halide_notes/blob/master/FinalRunWithHalide/sayef_halide_in.py) [Phylanx](https://github.com/STEllAR-GROUP/phylanx/) program, written in python, has been visualized in Traveler. Here, at the bottom right, the program is presented in the **Code View**. This program uses 16 threads to execute the function.
 
+### Gantt View
+At the bottom left is the **Gantt View**. Here at x-axis is time in nanoseconds. The y-axis represents CPU core and threads 
+presented as `core number-thread number`. For example, `0-T1` in the top row represents CPU core number 0 and thread number T1. This view shows a task 
+execution as an interval using a rectangle. For example, in the following figure, the highlighted yellow box represents a task execution at CPU core 0 
+and thread location T-1 started at roughly 258M nanoseconds and ended at time roughly 272M nanoseconds.
+![Gantt and Utilization View](03.png)
+Its possible to zoom in and zoom out by scrolling in the gantt view. Scrolling in the y-axis will zoom vertically over the CPU core-thread locations. It 
+also supports panning by clicking and dragging in both horizontally and vertically. The yellow lines represents parent-child dependency. For example the task `halide_hpx_for` is initiated by this task
+`/phylanx$0/variable$0$alpha/0$12$4`. It is possible to follow along the parent and show its other dependencies.
+![Gantt and Utilization View](04.png)
 
-This is an introduction of the Travlere interface. Traveler is hosted at this link https://traveler-integrated.herokuapp.com/. Traveler is an integrated visualization system for asynchronous multitask execution. Here at the bottom right, you can see a Phylan program written in python which executes a basic linear algebra function called dgemm with these parameters. This program uses 16 threads to execute the dgemm function.
+### Utilization View
+At the top left is the **Utilization View**, which shows among the 16 CPU threads, how much are being utilized at a time. Here, the x-axis represents time
+in nanoseconds. It supports brush drawing, by mouse click-hold-drag-release, to highlight a specific time in this view and the gantt view (and 
+other timeline views) will update accordingly. It is also possible to drag a previously drawn brash horizontally.
 
-Here at the top left is the utilization view, which shows among the 16 CPU threads, how much are being utilized at a time. The x axis here represents time in nanoseconds. At the bottom left is the gantt View. Similarly here at x-axis is time and y-axis represents CPU core and threads. The gantt view shows a task execution as an interval using a rectangle. For example this box represents a task execution at thread location 11 started at this time and ended at this time.
+### Selection Info View
+At the top-right is the Information view. It is showing all the related information of the execution. Clicking on an interval bar in the gantt view will 
+highlight (in yellow color) that interval bar in the gantt view and corresponding utilization in the utilization view. The **Selection Info View** will show 
+its relevant information. 
 
-Its possible to zoom in and zoom out by scrolling in the gantt view. If you start scrolling in the y-axis it will zoom vertically over the CPU core locations. You can also click and drag horizontally.
-
-Here, at the utilization view, you can click and drag a brush to highllight a specific time and the gantt view will update accordingly. Its also possible to click and drag this brash in the utilization view.
-
-At the top-right is the Information view. It is showing all the related information of the excution. Clicking on an interval bar in the gantt view will highllight that interval bar in the gannt view and its utilzation in the utilization view. You can also see its relevant information in the selection info view. Here, in the gantt view, the yellow lines represents parent-child dependency. For example the task 'halide_hpx_for' is initiated by this task /phylanx$0/variable$0$alpha/0$12$4. Its possible to follow along the parent and show its other dependencies.
-
-Traveler also has other types of views, if you click on this hamburger menu, it will show you all the available views. Here, you can see that, we have PAPI counters. If I click on PAPI_TOT_CYC, you can see another new view here at the bottom left. It is showing PAPI metric data total CPU cycle as a rate. It is represented as a functional box plots view, where the top line represents the maximum value, the bottom one the minimum, and the middle one the average. The shaed gray area around the average line is the 1 standard deviation. You can also see it has other types of metrics like CPU IDLE %. Here, you can also zoom in/out and drag to pan and it is also linked with the gantt and utilization view.
+### Functional Box Plots and Line Chart
+![Gantt and Utilization View](05.png)
+Traveler also has other types of views. Clicking on the hamburger menu in the left pane and then hovering over **OPEN VIEW** will show all the available views. 
+Clicking on **PAPI->PAPI_TOT_CYC** will bring a new view at the bottom left (see the following figure).
+![Functional Box Plots View](06.png)
+It is showing [PAPI](https://tvm.apache.org/docs/how_to/profile/papi.html) metric data **PAPI_TOT_CYC** (total CPU cycle) as a rate. For a consecutive 
+(time<sub>1</sub>, value<sub>1</sub>) and (time<sub>2</sub>, value<sub>2</sub>) pair where time<sub>1</sub> > time<sub>2</sub>, the rate is calculated as 
+follows,
+![rate=\frac{value_1-value_2}{time_1-time_2}](https://latex.codecogs.com/svg.image?rate=\frac{value_1-value_2}{time_1-time_2})
+It is represented as a functional box plots, where the top line represents the maximum value, the bottom one is the minimum, and the middle one is the average. 
+The shaded gray area around the average line is the 1 standard deviation. Traveler also supports other types of metrics like **CPU IDLE %** (the next picture). 
+These timeline views also support zoom in/out and panning. These are also linked with the gantt and utilization view.
+![Line Chart View](07.png)
 
 Lets see the interval histogram view. It is showing how many intervals are there of a specific duration or length. The y axis shows the count and x-axis is the durations. It is possible to click and drag a brush in this view and it will highlight all the inerval bars ranging of these duration in the gantt view and the utilization view. With this , it is possible to find out the longest interval bars, as well as the shortes ones also.
 
