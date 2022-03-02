@@ -55,7 +55,7 @@ Scroll in the y-axis of the **gantt view** to zoom out and show all the location
 
 #### Step 3
 Click through the hamburger menu->OPEN VIEW->INTERVAL HISTOGRAM.
-![seven](07.png)
+![seven](17.png)
 
 #### Step 4
 Click on the drop down menu at the bottom of the **interval histogram view**. Choose `halide_hpx_for`.
