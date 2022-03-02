@@ -20,7 +20,7 @@ An illustrative video can be found [here](https://www.dropbox.com/s/4ng58zygl6v1
 
 ### Introduction
 Traveler is an integrated visualization system for asynchronous multitask execution. It is hosted at this link https://traveler-integrated.herokuapp.com. 
-![Traveler Interface](01.png)
+![Traveler Interface](05.png)
 
 In this figure, execution data from a [sample](https://github.com/sayefsakin/halide_notes/blob/master/FinalRunWithHalide/sayef_halide_in.py) [Phylanx](https://github.com/STEllAR-GROUP/phylanx/) program, written in python, has been visualized in Traveler. Here, at the bottom right, the program is presented in the **Code View**. This program uses 16 threads to execute the function.
 
