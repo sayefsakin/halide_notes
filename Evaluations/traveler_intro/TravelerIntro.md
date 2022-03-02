@@ -8,18 +8,18 @@ An illustrative video can be found [here](https://www.dropbox.com/s/hx3gjpbwnyrw
 - Timeline Views 
   - Gantt View
   - Utilization View
-  - Functional Box Plot
+  - Functional Box Plot View
   - Line Chart View
-  - Aggregated Gantt
+  - Aggregated Gantt View
 - Ancillary views
   - Interval Histogram
-  - Task Dependency Tree
+  - Dependency Tree View
 - Informative Views
   - Selection Info View
   - Code View
 
 ### Introduction
-Traveler is an integrated visualization system for asynchronous multitask execution. It is hosted at this link https://traveler-integrated.herokuapp.com/. 
+Traveler is an integrated visualization system for asynchronous multitask execution. It is hosted at this link https://traveler-integrated.herokuapp.com. 
 ![Traveler Interface](01.png)
 
 In this figure, execution data from a [sample](https://github.com/sayefsakin/halide_notes/blob/master/FinalRunWithHalide/sayef_halide_in.py) [Phylanx](https://github.com/STEllAR-GROUP/phylanx/) program, written in python, has been visualized in Traveler. Here, at the bottom right, the program is presented in the **Code View**. This program uses 16 threads to execute the function.
@@ -28,16 +28,17 @@ In this figure, execution data from a [sample](https://github.com/sayefsakin/hal
 At the bottom left is the **Gantt View**. Here at x-axis is time in nanoseconds. The y-axis represents CPU core and threads 
 presented as `core number-thread number`. For example, `0-T1` in the top row represents CPU core number 0 and thread number T1. This view shows a task 
 execution as an interval using a rectangle. Clicking on an interval bar will highlight that with yellow color. For example, in the following figure, the 
-highlighted yellow box represents a task execution at CPU core 0 and thread location T-1 started at roughly 258M nanoseconds and ended at time roughly 272M nanoseconds.
+highlighted yellow bar represents a task execution at CPU core 0 and thread location T-1 started at roughly 258M nanoseconds and ended at time roughly 272M 
+nanoseconds.
 ![Gantt and Utilization View](03.png)
 Its possible to zoom in and zoom out by scrolling in the gantt view. Scrolling in the y-axis will zoom vertically over the CPU core-thread locations. It 
-also supports panning by clicking and dragging in both horizontally and vertically. The yellow lines represents parent-child dependency. For example the task `halide_hpx_for` is initiated by this task
-`/phylanx$0/variable$0$alpha/0$12$4`. It is possible to follow along the parent and show its other dependencies.
+also supports panning by clicking and dragging in both horizontally and vertically. The yellow lines represent parent-child dependency. For example the task 
+`halide_hpx_for` is initiated by the task `/phylanx$0/variable$0$alpha/0$12$4`. It is possible to follow along the parent and show its other dependencies.
 ![Gantt and Utilization View](04.png)
 
 ### Utilization View
 At the top left is the **Utilization View**, which shows among the 16 CPU threads, how much are being utilized at a time. Here, the x-axis represents time
-in nanoseconds. It supports brush drawing, by mouse click-hold-drag-release, to highlight a specific time in this view and the gantt view (and 
+in nanoseconds. It supports brush drawing, by mouse click-hold-drag-release, to highlight a specific time in this view. The gantt view (and 
 other timeline views) will update accordingly. It is also possible to drag a previously drawn brash horizontally.
 
 ### Selection Info View
@@ -77,15 +78,17 @@ function and it could be instrumented as a parent child relationship between the
 basically shows this parent-child relationship as a tree and makes it easier to navigate through each task. Now, if we aggregate tasks by the subtree rooted 
 at a specific node, we could visualize that using an ancillary **aggregated gantt view** (at the bottom-left). Here, It shows a single aggregated rectangle 
 to represent all such dependent tasks which gets aggregated by the subtree. Clicking on different nodes in the task dependency tree will show the 
-aggregated tasks in the **aggregated gantt view**, also highlight the related interval bars in the **gantt view** and update highlighting in the 
+aggregated tasks in the **aggregated gantt view**, highlight the related interval bars in the **gantt view** and update highlighting in the 
 **utilization view**. In the **dependency tree view**, clicking on the left arrow icon will collapse the subtree into a single node (associated node of the clicked arrow) and 
 turn that arrow into a right arrow. (top node in the 2nd column from the left of the following picture).
 ![Task Dependency Tree](12.png)
+
 Clicking on the right arrow will expand and show all the nodes in the subtree rooted at the associated node.
 ![Task Dependency Tree](11.png)
+
 Hovering over each node will show the associated task name. Nodes are shaded according to their total occurrence count (darker for higher occurrences). 
 Notice, the `halide_hpx_for` has darker blue color compared to other nodes which indicates that that task has higher occurrence in the execution. 
 
 In the **aggregated gantt view**, overlapped aggregated bars are presented with an additional row and color coded with different shades of purple color. 
-Interval bars in the **gantt view** also colored with the same shade of purple corresponding to the aggregated bar these belong in the **aggregated gantt 
-view**. The task name is also written with each aggregated bar and associated CPU utilization is drawn within the aggregated bar.
+Interval bars in the **gantt view** are also being colored with the same shade of purple corresponding to the aggregated bar (to which these bars belong to) in 
+the **aggregated gantt view**. The task name is also written with each aggregated bar and associated CPU utilization is drawn within the aggregated bar.
