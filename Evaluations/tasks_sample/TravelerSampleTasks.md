@@ -106,7 +106,7 @@ Conclusion: Roughly 2 noticeable bars in the **aggregated gantt view**. Notice t
 
 #### Step 6
 Find primitive `/phylanx$0/variable$4$C/0$16$4` to find all tasks related to instantiating variable `C`.
-![fourteen](15.png)
+![fourteen](16.png)
 Conclusion: Roughly 2 noticeable bars in the **aggregated gantt view**. Notice the associated bars in the **gantt view** also.
 
 Final Conclusion: These three variables `A,B,C` are being loaded synchronously which is conspicuous from their execution bar in the **gantt view**
