@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import re
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -32,18 +33,6 @@ def printAsJSON(entry, f, is_first):
 
 
 def main():
-#     test_string = "honeyhello path_nai"
-#     test_string = "2022-03-09T01:31:13.620350+00:00 heroku[router]: at=info method=GET " + \
-#                   "path=\"/datasets/0c366d78-eb68-405f-819e-096b9f2729a6/getUtilizationForPrimitive?bins=662&begin=47907181&end=1400844060&isCombine=true" + \
-#                   "&utilType=utilization&primitive=all_primitives&duration_bins=220\" host=traveler-integrated.herokuapp.com " + \
-#                   "request_id=2e8ff26d-16fd-4e52-b2b9-d8d16ad65360 fwd=\"67.1.161.153\" dyno=web.1 connect=0ms service=313ms status=200 bytes=592297 " + \
-#                   "protocol=https"
-#     txt = "The rain in Spain"
-#     x = re.search(r"path=\"((?:[^\"\\]|\\.)*)\"", test_string)
-#     if x is not None:
-#         print(x.group(1))
-#     else:
-#         print('not found')
     with open("log.txt", 'r', encoding="utf-16") as file:
         f = open("parsed_requests", "w")
         is_first = 0
@@ -81,6 +70,31 @@ def main():
         # f.write('\n]')
         # f.close()
 
+def generate_random(centroids, points):
+    # a portion of total number of points cluster around each centroid
+    raw_shares = np.random.rand(centroids)
+    shares = (points * raw_shares / np.sum(raw_shares)).astype(int)
+    raw_points_collection = []
+
+    for i in shares:
+        # random points in each cluster gather around a random centroid
+        # a random factor is multiplied to separate clusters
+        raw_points_collection.append(
+            np.random.rand(i, 2) * np.random.rand() + np.random.rand(2))
+
+    return np.vstack(raw_points_collection)
+
+def hell():
+    print('nai')
+    centroids = np.array([(1, 2), (3, 4)])
+    # lambda k: np.sum(points * np.expand_dims(closest == k, -1), 0) / np.sum(closest == k, 0)
+
+    # print(range(np.shape(centroids, 0)))
+    # print(np.sum(centroids, 0))
+    # print(np.argmin(centroids,0))
+    a = generate_random(2, 5)
+    print(a)
 
 if __name__ == '__main__':
-    main()
+    # main()
+    hell()

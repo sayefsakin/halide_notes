@@ -67,6 +67,9 @@ G5. Understanding Utilization (U2)
 -- Identifying utilizaiton by longest execution path (T2, T6)
 G6. Export/Save (U3)
 -- save charts
+(since we will be focusing on a single runs only, not including the following. Again this does not align with the purpose of navigating a trace data. Though we can think of navigating multiple trace data but this leads to another problem domain. So ignoring this for now.)
+G7. Manage Multiple runs
+-- add/remove tag(s) on runs, add/remove folder(s), Sort runs by folder or tag.
 
 Tasks 
 (follow CerebroVIS task abstraction style mostly, pointing to the Multi-Level Typology by Brehmer and Munznar,
