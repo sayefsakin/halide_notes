@@ -1,0 +1,92 @@
+Timeline Views
+- Gantt View
+- Utilization View
+- Functional Box Plot View
+- Line Chart View
+- Aggregated Gantt View
+
+Ancillary views
+- Interval Histogram View
+- Dependency Tree View
+
+Informative Views
+- Selection Info View
+- Code View
+
+=============================
+
+Functional Box Plot - Kevin (I think the users’ eye will be drawn to the interesting values…for a start at least.)
+Interval histogram view - Hartmut - too long or too short executions
+Understand Utilization - 
+Follow Control Flow (find suitable wording for Taks dependency tree) (ask Kate about it for the reference, if Hartmut or Kevin or other mention it before)
+
+
+
+==========================
+
+
+Make tasks related to 
+
+- Gantt and Util
+- Functional box plot
+- Dependency Tree
+- Dependency Tree and/or aggregated gantt
+- Interval Histogram view 
+
+Actual Goals From Katy's work
+===================================
+
+Umbrella Concerns
+U1. Program Comprehension
+U2. Performance Analysis
+U3. Communication
+
+Goals
+G1. Overview of Execution
+-- Total execution time, (T1)
+-- execution time of any specific function/block (T1)
+-- find longest interval bars and what primitive causes it, (T1, T4, T7)
+-- identifying gap in the utilization and what causes it (T1, T6)
+G2. Relate execution to Code (U1, U2)
+-- finding line of code, primitive (function or variable), relation to PhySL and ultimatley to python code (T7)
+G3. Relate execution with hardware performance counters (U1, U2)
+-- identifying trend/change in hardware performance counters, (T3)
+-- what counter causes utilizaiton bump or scarcity, (T3, T6)
+-- relationship of primitive execution with performance counter (T1, T3, T7)
+G4. Understanding Dependencies (U2)
+-- longest ans shortest interval bars and what primitive(s) causes it (dependency), (T1, T4, T7)
+-- Identifying primitive(s) with highest/lowest execution count. (similar to finding hot spots in Katy's task) (T1, T5)
+-- Identifying root primitive(s) (T2)
+-- Finding Execution Path, (T2)
+-- Identifying Execution mode (synchronous or asynchronous) (T1, T2)
+-- Identifying a set of synchronous executions and determine possibility of parallelizing them (T1, T2)
+-- Find the longest execution path (at an execution tree) (T2)
+G5. Understanding Utilization (U2)
+-- Locate variation in the utilizaiton (T6), what counter causes utilizaiton bump or scarcity (T3, T6), what primitive(s) causes that (T6, T7)
+-- Identifying lowest used core/thread (T1, T6)
+-- Identifying utilizaiton by longest execution path (T2, T6)
+G6. Export/Save (U3)
+-- save charts
+
+Tasks 
+(follow CerebroVIS task abstraction style mostly, pointing to the Multi-Level Typology by Brehmer and Munznar,
+tasks related to the "Task Dependency Tree" will come from Lee et al)
+T1. Lookup execution of any component / Lookup intervals (Browsing if from the tree, locate a feature)
+T2. Identifying execution paths (subtask. Find the longest execution path (at an execution tree)) (Topology follow path, browsing topology)
+T3. Locate interesting values in the hardware performance counters (locate outliers)
+T4. Locate outlier intervals (with longest or shortest duration) (locate outliers)
+T5. Locate primitive with most or lest frequent execution (locate outliers, browsing (follow path), attribute (edge attribute))
+(this can be done using interval histogram view also by choosing primiitve from the menu)
+T6. Explore Utilzation (locate outlier)
+T7. Lookup Primitive (locate feature, browsing (follow path), attribute (edge attribute))
+
+
+Some Feature to identify (also have to find related primitive and its parent primitive(s))
+- longest interval bar (T4) 
+- shortest interval bar (T4) 
+- Most frequent primitive (T5)
+- less frequent primitive (T5)
+- hardware performance counter change (T3)
+- Utilization scarcity or overusage (T6)
+- A set of synchronous execution paths (T2)
+- longest execution path (T2)

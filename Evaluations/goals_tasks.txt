@@ -1,0 +1,92 @@
+Sabin
+-----------------------------------
+G1: Debug Mental Model.
+G2: Locate a Feature of Interest.
+G3: Debug an Algorithm.
+G4: Present, Explain, and Share.
+
+
+T1: Follow Control Flow. (G1, G3, G4)
+T2: Identify Known Structures. (G1, G2)
+T3: Examine Specific Regions. (G1, G3)
+T4: Identify Outliers. (G1, G2)
+T5: Identify Feature Repetition. (G1, G2, G3)
+T6: Alter Visualization. (G4, G1, G3)
+
+
+E1. Find a specific address in the trace and center the node containing it in the CFG. (Task T3)
+E2. Find a specific function. (Task T3)
+E3. Find a specific loop and identify its back edge and loop exits. (Tasks T2 and T3)
+E4. Find the loop with the most iterations. (Tasks T2 and T5)
+E5. Free Exploration: Explore instructions marked by automated analysis. (Tasks T1 and T4)
+
+
+Katy 
+-----------------------------------
+Umbrella Concerns
+- Program Comprehension
+- Performance Analysis
+- Communication
+
+(these are related to execution graph)
+G1. Overview of Execution
+G2. Relate to Code
+G3. Understanding Timing Information
+G4. Understand Runtime Decisions
+G5. Understand Utilization
+G6. Export/Save
+
+(Lee et al)
+T1. Overview (4.4 Overview)
+T2. Follow Dependencies (4.1.1 Adjacency, 4.3.1 Follow Path)
+T3. Find Substructures (5 Higher Level Tasks)
+T4. Find Subsets (4.2.1 Node Attribute Tasks)
+T5. Analyze Node Attributes (4.2.1 Node Attribute Tasks)
+T6. Compare (4.2.1 Node Attribute Tasks, 5 Higher Level Tasks)
+
+
+L1: Find a primitive that takes a lot of time. (G3) How long does it take without its children? With? (G3)
+L2: Find a primitive that is executed synchronously (G4)
+L3: Find a primitive that is executed asynchronously (G4)
+L4: Find a primitive that is repeated in the code (G1)
+C1: Which run was slower? (G3), *Why might it have been slower? (G1, G2, G3, G4)
+C2: Find a primitive that changed execution mode. (G4) Explain the change. (G4)
+
+
+CerebroVIS
+--------------------------------------------------
+Goals
+1. Stenosis Detection:
+2. Aneurysm Detection:
+3. Find Missing Arteries:
+4. Blood Flow Visualization:
+5. Therapeutic Planning:
+
+Task
+Brehmer and Munzner multi-level task typology, Graph by Lee et al
+
+Evaluation tasks
+- identify Stenosis (they measured accuracy as number of stenosis detected)
+
+
+LiveGantt
+---------------------------------------------------
+Challenges
+Scalability:
+Explorability:
+Reschedulability:
+
+Simple tasks: Simple tasks can be performed by looking at a schedule from a single perspective. This kind of tasks are performed for answering the following simple questions. They are simple, yet important to assess a schedule.
+ How does the utilization change over time?
+ How many workers do we need to complete the schedule?
+ Which package takes the longest time to finish?
+ How many resources are running tasks related to package A at time t?
+ How does WIP change over time?
+Complex tasks: In contrast to simple tasks, complex tasks require investigating schedules from two or more perspectives. This kind of tasks are performed for answering the following complex questions.
+ When WIP plummets, is it a result of excessive consumption or delay in production? (WIP-time and task-time)
+ When a large number of changeovers take place at time t, which package brings the changeovers? (changeover-time and task-time)
+ Show the schedule of the resource on which the maximum number of changeovers are scheduled. (resource-time and task-time)
+Exploratory tasks: Exploratory tasks are kind of open ended and require users to make and test sometimes several hypotheses. For example, the following what-if questions have to be answered to perform exploratory tasks. They are usually related to modification of a schedule.
+ How does the entire schedule change if several tasks are reallocated?
+ Will it violate precedence rules if a task is moved to other resource?
+ Will a modification result in an increase/decrease of utilization/makespan?

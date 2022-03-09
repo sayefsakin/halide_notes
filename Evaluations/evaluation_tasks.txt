@@ -1,0 +1,48 @@
+Tasks Analysis
+(follow CerebroVIS task abstraction style mostly, pointing to the Multi-Level Typology by Brehmer and Munznar,
+tasks related to the "Task Dependency Tree" will come from Lee et al)
+T1. Lookup execution of any component / Lookup intervals (Browsing if from the tree, locate a feature)
+T2. Identifying execution paths (subtask. Find the longest execution path (at an execution tree)) (Topology follow path, browsing topology)
+T3. Locate interesting values in the hardware performance counters (locate outliers)
+T4. Locate outlier intervals (with longest or shortest duration) (locate outliers)
+T5. Locate primitive with most or lest frequent execution (locate outliers, browsing (follow path), attribute (edge attribute))
+(this can be done using interval histogram view also by choosing primiitve from the menu)
+T6. Explore Utilzation (locate outlier)
+T7. Lookup Primitive (locate feature, browsing (follow path), attribute (edge attribute))
+
+
+Some Feature to identify (also have to find related primitive and its parent primitive(s))
+- longest interval bar (T4) 
+- shortest interval bar (T4) 
+- Most frequent primitive (T5)
+- less frequent primitive (T5)
+- hardware performance counter change (T3)
+- Utilization scarcity or overusage (T6)
+- A set of synchronous execution paths (T2)
+- longest execution path (T2)
+
+in fib16 dataset
+E1: longest interval bar - run_as_hpx_thread (non-void) (T1, T4, T7)
+E2: longest execution call path - /phylanx$0/function$0$fib/0$7$0 (T2, 
+E3: Find reason for Dip in the utiliztion at 0.45sec (T1, T2, T6, T7)
+E4: Locate relation with hardware PAPI counter with the utilization dip
+E5: 
+
+
+in kmeans_16 dataset
+E1: Finad longest interval bar - run_as_hpx_thread (non-void) (T1, T4, T7)
+E2: Finad primitive with highest occurance - run_as_hpx_thread (non-void) (T5, T7)
+E2: longest execution call path - /phylanx$0/function$3$kmeans_t/3$58$0 (T2, T6)
+E3: Locate relation with hardware PAPI counter with the utilization dip (T3) (L2_DCM is lower compared to L1_DCM)
+E4: Find maximum number of CPU utilization and related primiitves (T7, T1, T2, T6)
+E5: Can it be more parallelized? - No, clicking on /phylanx$0/lambda$5/3$61$4 gives multiple rows in agg gantt view, each iteration is waiting for some values from the previous iteration
+
+in kmeans dataset(50 iterations, 1000 points, 10 centroids, 16 cores)
+E1: Finad longest interval bar - run_as_hpx_thread (non-void) (T1, T4, T7)
+E2: Finad primitive with highest occurance - run_as_hpx_thread (non-void) (T5, T7)
+E2: longest execution call path - /phylanx$0/function$3$kmeans_t/3$58$0 (T2, T6)
+E3: Locate relation with hardware PAPI counter with the utilization dip (T3) (L2_DCM is lower compared to L1_DCM, BR_MSP is higher in prior and becomes lower later)
+E4: Find maximum number of CPU utilization and related primiitves (T7, T1, T2, T6)
+- /access-function$1$move_centroids/3$64$13 is the culprit at first time
+E5: Can it be more parallelized? 
+- No, clicking on for_each$0/3$61$4 /access-argument$16$iterations/3$61$19 gives multiple rows in agg gantt view, each iteration is waiting for some values from the previous iteration
