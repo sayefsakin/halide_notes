@@ -2,30 +2,74 @@ Interview Script
 
 Section: (expected end time)
 
-Briefing: (3 min)
-Hi, this is [redacted], I am a visualization and HPC researcher at [redacted]. Thank you for agreeing to participate in this interview. 
+Briefing: (5 min)
+Hi, this is Sayef, I am a visualization and HPC researcher at University of Arizona. Professor Kate Isaacs is also joining with us today, she is an assistant professor here at the university of arizona and she is my advisor. She is going to observe our session today.
 
-At first, would you mind if I record this meeting? I’ll need to analyse your responses later on.
+Thank you for agreeing to participate in this evaluation session. At first, would you mind if I record this meeting? I’ll need to analyse your responses later on.
 
-Thanks. I think you already know [redacted]. [redacted] mostly observe the interview today. I am working with [redacted], and we are trying to evaluate Travler, which is an intergrated visualization system for asynchronous multi-task programs, like HPX. At first, I am going to give you a brief overview of Traveler. Then, you will be asked to perform a series of tasks using the Traveler interface on a predefined dataset. After that, I will ask you some questions about your experience with Traveler. These activities help us collect feedback and assess Traveler.
+Thanks. So, We are trying to evaluate Traveler, which is an intergrated visualization system for asynchronous multi-task programs, like HPX. At first, I am going to give you a brief overview of Traveler. Then, you will be asked to perform a series of tasks using the Traveler interface on a predefined dataset. After that, I will ask you some questions about your experience with Traveler. These activities help us collect feedback and assess Traveler.
 
-Traveler Demo: (12 min)
+Now, please go to this link (https://traveler-integrated.herokuapp.com/). You can explore this dataset by your own alongside my demo.
+Traveler Demo: (25 min)
+This is an introduction of the Traveler interface. Here, at the bottom right, in the code view, you can see a phylanx program written in python to execute the dgemm function using 16 CPU threads. Phylanx is An Asynchronous Distributed C++ Array Processing Toolkit library which is built on top of HPX. HPX is a C++ Standard Library for Parallelism and Concurrency. The function calls, code blocks, variables of Phylanx are refered to as primitives.
 
-Perform tasks: (20 min)
-Now, please go to this link (https://traveler-integrated.herokuapp.com/). This dataset is generated from an HPX program running kmeans algorithm in 16 cores. The input parameters were 1000 points, 10 centroids points, and 50 iterations. I am going to give you some tasks to perform on this dataset 
+Gantt View
+At the bottom left is the gantt view. So, a gantt chart uses a series of rectangular bars to show the amount of task being done in certain periods of time. Here at x-axis is the time and y-axis represents CPU core and threds.Each row represents task executions at a particular CPU thread or core. The top row being core number 1, the seconds one is for core number 2 and so on. Lets see an example. this rectangular bar represents a task execution at thread location 11 started at roughly 0.16 second to ended at roungly 0.17 second. We call this is an interval of primitive 'halide_hpx_for'.
 
-E1: Take 5 minutes and explore the dataset
+ You can zoom in horizontally by scrolling up and zoom out horizontally by scrolling down inside this gantt view. If you bring your mouse over the y-axis labels here, you can zoom in vertically by scrolling up and zoom out vertically by scrolling down. You can pan the gantt view by click and hold and then start dragging your mouse in both horizonatlly and vertically.
+
+The yellow lines represent parent-child dependency. For example the task halide_hpx_for is initiated by the task /phylanx$0/variable$0$alpha/0$12$4. It is possible to follow along the parent and show its other dependencies.
+
+Utilization view
+At the top left is the Utilization View, which shows among the 16 CPU threads, how much are being utilized at a time. Here, the x-axis represents time in nanoseconds. It supports brush drawing, by mouse click-hold-drag-release, to highlight a specific time in this view. The gantt view (and other timeline views) will update accordingly. It is also possible to drag a previously drawn brash horizontally.
+
+Selection Info View
+At the top-right is the Selection Info View. It is showing all the related information of the execution. Clicking on an interval bar in the gantt view will highlight (in yellow color) that interval bar in the gantt view and corresponding utilization in the utilization view. The Selection Info View will show its relevant information.
+
+Let me stop for a moment and see if you have any questions so far?
+
+
+Task Dependency Tree
+
+Functional Box Plot
+This view is showing PAPI metric data PAPI_TOT_CYC (total CPU cycle) as a rate. We calculate rate as the change in values over time, using this formula. It is represented as a functional box plots, where the top line represents the maximum value, the bottom one is the minimum, and the middle one is the average. The shaded gray area around the average line is the 1 standard deviation. These timeline views also support zoom in/out and panning. These are also linked with the gantt and utilization view.
+
+
+Interval Histogram View
+From the hamburger menu in the left pane, clicking through OPEN VIEW->INTERVAL HISTOGRAM will show up the Interval Histogram View (bottom-right in the following picture). This view is showing how many intervals are there of a specific duration or length. Here, the y-axis shows the count and x-axis is the durations. It is possible to click and drag a brush in this view, and consequently in the gantt view, it will highlight all the interval bars having length within the brushed duration. The highlighting in the utilization view also gets updated. With this, it is possible to find out the longest interval bars, as well as the shortest ones.
+
+So do you have any questions so far?
+
+Task Dependency Tree
+From the hamburger menu in the left pane, clicking through OPEN VIEW->TASK DEPENDENCY TREE will bring two interfaces--Dependency Tree View and Aggregated Gantt View.
+
+Here at the bottom-right is the dependency tree view. As a reminder, There could be a dependency between some tasks, like a function calls to another function and it could be instrumented as a parent child relationship between these tasks (yellow lines in the gantt view). The task dependency tree basically shows this parent-child relationship as a tree and makes it easier to navigate through each task. Now, if we aggregate tasks by the subtree rooted at a specific node, we could visualize that using an ancillary aggregated gantt view (at the bottom-left). Here, It shows a single aggregated rectangle to represent all such dependent tasks which gets aggregated by the subtree. Clicking on different nodes in the task dependency tree will show the aggregated tasks in the aggregated gantt view, highlight the related interval bars in the gantt view and update highlighting in the utilization view. In the dependency tree view, clicking on the left arrow icon will collapse the subtree into a single node (associated node of the clicked arrow) and turn that arrow into a right arrow. (top node in the 2nd column from the left of the following picture).
+
+Here in the aggregated gantt view, please dont confuse the rows with CPU core thread. This just represents a single aggreated execution and if there is an overlap between exection, it uses multiple rows.
+
+Clicking on the right arrow will expand and show all the nodes in the subtree rooted at the associated node.
+
+Hovering over each node will show the associated task name. Nodes are shaded according to their total occurrence count (darker for higher occurrences). Notice, the halide_hpx_for has darker blue color compared to other nodes which indicates that that task has higher occurrence in the execution.
+
+
+
+Perform tasks: (10 min)
+This dataset is generated from an HPX program running kmeans algorithm in 16 cores. The input parameters were 1000 points, 10 centroids points, and 50 iterations. I am going to give you some tasks to perform on this dataset 
+
+E1: Take 5 minutes and explore the dataset (what do you notice in the dataset)
 E2: Locate the longest interval bar
 E3: Find the primitive with highest occurance (in terms of total execution time)
 E4: Locate highest CPU utilization and find the responsible primiitve(s)
 E5: Explore CPU utilization relationship with L1 and L2 data cache misses.
 
 
-Interview: (20 min)
+Interview: (15 min)
 - which view helped you mostly to perform the tasks?
 - which feature did you like most?
+- What other tools they have used and how they might compare them?
 - so do you have any additional proposals for any additional features which we could include here?
 - Do you have any comment on this?
+
 
 Debriefing: (5 min)
 So thats all for this evaluation session. So, I am now concluding this session. thank you very much for your time and participation. 
