@@ -38,11 +38,13 @@ E4: Find maximum number of CPU utilization and related primiitves (T7, T1, T2, T
 E5: Can it be more parallelized? - No, clicking on /phylanx$0/lambda$5/3$61$4 gives multiple rows in agg gantt view, each iteration is waiting for some values from the previous iteration
 
 in kmeans dataset(50 iterations, 1000 points, 10 centroids, 16 cores)
+(just take 5 minutes and explore the dataset) (it would give them little bit more familiraruyt with the data)
+(during the demo share your own screen)
 E1: Locate the longest interval bar - run_as_hpx_thread (non-void) (T1, T4, T7)
 E2: Find the primitive with highest occurance (in terms of total execution time) - run_as_hpx_thread (non-void) (T5, T7)
-E3: Find the primitive having longest (in terms of total execution time) execution call path - /phylanx$0/function$3$kmeans_t/3$58$0 (T2, T6)
+E3: Find the primitive having longest (in terms of total execution time) execution call path - /phylanx$0/function$3$kmeans_t/3$58$0 (T2, T6) (remove this one)
 E4: Locate highest CPU utilization and find the responsible primiitve(s) (T7, T1, T2, T6)
 - /access-function$1$move_centroids/3$64$13 is the culprit at first time
 E5: Explore CPU utilization relationship with L1 and L2 data cache misses. (T3) (L2_DCM is lower compared to L1_DCM, BR_MSP is higher in prior and becomes lower later)
-E6: Find out if the execution can be more parallelized? 
+E6: Find out if the execution can be more parallelized? (remove also this one)
 - No, clicking on for_each$0/3$61$4 /access-argument$16$iterations/3$61$19 gives multiple rows in agg gantt view, each iteration is waiting for some values from the previous iteration

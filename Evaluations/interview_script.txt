@@ -1,0 +1,31 @@
+Interview Script
+
+Section: (expected end time)
+
+Briefing: (3 min)
+Hi, this is [redacted], I am a visualization and HPC researcher at [redacted]. Thank you for agreeing to participate in this interview. 
+
+At first, would you mind if I record this meeting? I’ll need to analyse your responses later on.
+
+Thanks. I think you already know [redacted]. [redacted] mostly observe the interview today. I am working with [redacted], and we are trying to evaluate Travler, which is an intergrated visualization system for asynchronous multi-task programs, like HPX. At first, I am going to give you a brief overview of Traveler. Then, you will be asked to perform a series of tasks using the Traveler interface on a predefined dataset. After that, I will ask you some questions about your experience with Traveler. These activities help us collect feedback and assess Traveler.
+
+Traveler Demo: (12 min)
+
+Perform tasks: (20 min)
+Now, please go to this link (https://traveler-integrated.herokuapp.com/). This dataset is generated from an HPX program running kmeans algorithm in 16 cores. The input parameters were 1000 points, 10 centroids points, and 50 iterations. I am going to give you some tasks to perform on this dataset 
+
+E1: Take 5 minutes and explore the dataset
+E2: Locate the longest interval bar
+E3: Find the primitive with highest occurance (in terms of total execution time)
+E4: Locate highest CPU utilization and find the responsible primiitve(s)
+E5: Explore CPU utilization relationship with L1 and L2 data cache misses.
+
+
+Interview: (20 min)
+- which view helped you mostly to perform the tasks?
+- which feature did you like most?
+- so do you have any additional proposals for any additional features which we could include here?
+- Do you have any comment on this?
+
+Debriefing: (5 min)
+So thats all for this evaluation session. So, I am now concluding this session. thank you very much for your time and participation. 
