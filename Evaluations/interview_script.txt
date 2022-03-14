@@ -11,7 +11,7 @@ Thanks. So, We are trying to evaluate Traveler, which is an intergrated visualiz
 
 Now, please go to this link (https://traveler-integrated.herokuapp.com/). You can explore this dataset by your own alongside my demo.
 Traveler Demo: (25 min)
-This is an introduction of the Traveler interface. Here, at the bottom right, in the code view, you can see a phylanx program written in python to execute the dgemm function using 16 CPU threads. Phylanx is An Asynchronous Distributed C++ Array Processing Toolkit library which is built on top of HPX. HPX is a C++ Standard Library for Parallelism and Concurrency. The function calls, code blocks, variables of Phylanx are refered to as primitives.
+This is an introduction of the Traveler interface. Here, at the bottom right, in the code view, you can see a phylanx program written in python to execute the dgemm matrix multiply function using 16 CPU threads. Phylanx is An Asynchronous Distributed C++ Array Processing Toolkit library which is built on top of HPX. HPX is a C++ Standard Library for Parallelism and Concurrency. The function calls, code blocks, variables of Phylanx are refered to as primitives.
 
 Gantt View
 At the bottom left is the gantt view. So, a gantt chart uses a series of rectangular bars to show the amount of task being done in certain periods of time. Here at x-axis is the time and y-axis represents CPU core and threds.Each row represents task executions at a particular CPU thread or core. The top row being core number 1, the seconds one is for core number 2 and so on. Lets see an example. this rectangular bar represents a task execution at thread location 11 started at roughly 0.16 second to ended at roungly 0.17 second. We call this is an interval of primitive 'halide_hpx_for'.
@@ -36,7 +36,9 @@ This view is showing PAPI metric data PAPI_TOT_CYC (total CPU cycle) as a rate. 
 
 
 Interval Histogram View
-From the hamburger menu in the left pane, clicking through OPEN VIEW->INTERVAL HISTOGRAM will show up the Interval Histogram View (bottom-right in the following picture). This view is showing how many intervals are there of a specific duration or length. Here, the y-axis shows the count and x-axis is the durations. It is possible to click and drag a brush in this view, and consequently in the gantt view, it will highlight all the interval bars having length within the brushed duration. The highlighting in the utilization view also gets updated. With this, it is possible to find out the longest interval bars, as well as the shortest ones.
+From the hamburger menu in the left pane, clicking through OPEN VIEW->INTERVAL HISTOGRAM will show up the Interval Histogram View (bottom-right in the following picture). This view is showing how many intervals are there of a specific duration or length. Here, the y-axis shows the count and x-axis is the durations. 
+For example, So this bar here means that X intervals in the Gantt chart took Y time. (show an example)
+It is possible to click and drag a brush in this view, and consequently in the gantt view, it will highlight all the interval bars having length within the brushed duration. The highlighting in the utilization view also gets updated. With this, it is possible to find out the longest interval bars, as well as the shortest ones.
 
 So do you have any questions so far?
 
@@ -73,3 +75,7 @@ Interview: (15 min)
 
 Debriefing: (5 min)
 So thats all for this evaluation session. So, I am now concluding this session. thank you very much for your time and participation. 
+
+
+
+*** ask them about themselves *** (expereince with HPC)
