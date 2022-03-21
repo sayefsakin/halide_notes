@@ -1,7 +1,7 @@
 ### Findings Summary
 
-- There seems to be a serialization in loading the variables. (These are shown in analysis 1 and 2)
-- The CPU thread utilization never exceeds 2.0 (These are shown in analysis 3 and 4)
+- There seems to be a serialization in loading the variables. (These are shown in analysis [1](https://github.com/sayefsakin/halide_notes/blob/master/CaseStudyAnalysis.md#analysis-1-dgemm) and [2](https://github.com/sayefsakin/halide_notes/blob/master/CaseStudyAnalysis.md#analysis-2-dgemm))
+- The CPU thread utilization never exceeds 2.0 (These are shown in analysis [3](https://github.com/sayefsakin/halide_notes/blob/master/CaseStudyAnalysis.md#analysis-3-als) and [4](https://github.com/sayefsakin/halide_notes/blob/master/CaseStudyAnalysis.md#analysis-4-kmeans))
 
 ### How I built Phylanx with Halide
 
