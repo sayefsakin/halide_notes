@@ -30,5 +30,5 @@ I run [this python](kmeans/kmeans.phylanx.py) program and generated OTF2 data an
 ![d](kmeans/b.JPG)
 In the following figure, I used 16 threads,
 ![a](kmeans/a.JPG)
-Noticed that, even if I increased total thread counts, max CPU thread utilization doesn't change. Although using 16 threads completes the execution faster 
-(0.3 seconds) compared to using 8 threads (1.4 seconds).
+Noticed that, even if I increased total thread counts, max CPU thread utilization doesn't change. Total execution time using 16 threads is 0.37 seconds, 
+using 8 threads is 0.25 (got these values from the console output).
