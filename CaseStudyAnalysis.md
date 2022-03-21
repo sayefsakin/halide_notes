@@ -5,7 +5,8 @@ following [Rod's](https://github.com/rtohid/scripts/blob/master/build/rostam/bui
 
 ### Sample Run and Observation 1 (dgemm)
 I run [this python](FinalRunWithHalide/sayef_halide_in.py) program and generated OTF2 data and visualized in Traveler. I noticed that, for the second function 
-halide_dgemm_in, it takes some time to load the variables A,B, and C. Check the purple bars in the Gantt View of these figures,
+halide_dgemm_in, it takes some time to load the variables A,B, and C. Check the purple bars in the Gantt View of these figures. I used red arrows to 
+annotate over these images. 
 ![a](FinalRunWithHalide/a.JPG)
 ![b](FinalRunWithHalide/b.JPG)
 ![c](FinalRunWithHalide/c.JPG)
