@@ -4,7 +4,7 @@ Using HPX git commit # 295b5f82cc39925a0d53e77ba3b6d02a65204535 and Phylanx git 
 following [Rod's](https://github.com/rtohid/scripts/blob/master/build/rostam/build_phylanx_halide.sh) script, I built Phylanx with halide. 
 
 ### Sample Run and Observation 1 (dgemm)
-I run [this python](FinalRunWithHalide/sayef_halide_test.py) program and generated OTF2 data and visualized in Traveler. I noticed that, for the second function 
+I run [this python](FinalRunWithHalide/sayef_halide_in.py) program and generated OTF2 data and visualized in Traveler. I noticed that, for the second function 
 halide_dgemm_in, it takes some time to load the variables A,B, and C. Check the purple bars in the Gantt View of these figures,
 ![a](FinalRunWithHalide/a.JPG)
 ![b](FinalRunWithHalide/b.JPG)
@@ -16,8 +16,8 @@ I run [this python](Analysis3/sayef_multi_in.py) program and generated OTF2 data
 inside the `sayef_multi_in.py` function (at line number 17, 18). Then in the visualization, I noticed additional two synchronous executions (total 5, 
 for the Sample Run and Observation 1, it was 3).
 Check the purple bars in the Gantt View of these figures,
-![d](Analysis3/a.JPG)
-![e](Analysis3/b.JPG)
+![d](Analysis3/d.JPG)
+![e](Analysis3/e.JPG)
 
 ### Sample Run and Observation 3 (ALS)
 I run [this python](ALS/phylanx_als_csv.py) program and generated OTF2 data and visualized in Traveler. I noticed that max CPU thread utilization is roughly 
