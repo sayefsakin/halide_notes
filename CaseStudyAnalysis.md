@@ -5,9 +5,9 @@
 
 ### How I built Phylanx with Halide
 
-Using HPX git commit # `295b5f82cc39925a0d53e77ba3b6d02a65204535` 
+Using HPX git commit # `dc79a36c922087edf2653fae5d0f2dd72706ab3b`,
 
-and Phylanx git commit # `dc79a36c922087edf2653fae5d0f2dd72706ab3b`,
+and Phylanx git commit # `295b5f82cc39925a0d53e77ba3b6d02a65204535`,
 
 and then by mostly following [Rod's](https://github.com/rtohid/scripts/blob/master/build/rostam/build_phylanx_halide.sh) script, I built Phylanx with halide. 
 
