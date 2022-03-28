@@ -10,3 +10,7 @@ interval bars are longer on average compared to the halide case
 Intervals at least as long as 24948919 ns
 and at most as long as 81883002 ns
 that belong to primitive /phylanx$0/blaze_dgemm$0/0$17$11
+
+
+even though L1_DCM in blaze is 10 fold lower than halide, 
+it is understandable since, for blaze case, the average interval lenght is longer so rate becomes lower

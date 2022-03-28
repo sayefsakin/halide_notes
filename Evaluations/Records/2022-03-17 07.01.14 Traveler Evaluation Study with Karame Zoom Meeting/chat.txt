@@ -1,0 +1,3 @@
+07:01:54	 From  Sayef Azad Sakin : https://traveler-integrated.herokuapp.com/
+07:58:02	 From  Sayef Azad Sakin   to   Kate Isaacs(Direct Message) : https://github.com/hdc-arizona/traveler-integrated
+07:58:11	 From  Sayef Azad Sakin   to   Kate Isaacs(Direct Message) : https://github.com/sayefsakin/halide_notes/blob/master/Evaluations/traveler_intro/TravelerIntro.md

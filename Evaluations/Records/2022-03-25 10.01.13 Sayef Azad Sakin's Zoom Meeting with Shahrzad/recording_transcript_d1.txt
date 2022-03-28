@@ -1,0 +1,128 @@
+interviewer: ok so yeah, I heard form hartmut that you worked on, like you regularly bringing different screenshot with Traverelr, and yeah when you worked with HPX, I guess you have some experience with Traveler. can you like, can you please share your experience like why you used Traveler and in what purpose you were using it mostly so like this.
+
+participant: the most important for me was that it was free, I mean the quality is good and that's another part and I used to use uumm vampyr for that. uuh for this purpose. the main purpose I was using it was to visualizing OTF2 traces and I was using vampyr and I didn't have a licence and I keep using the trial one that give you a demo licence before it would expire after a week and it would take longer, so I keep using that and once I figure out, I heard about Traveler and it make things really easier for me. and um so, I had good experiences with Traveler and whetever I used it was giving me the information that I needed most of the time. if there was some few bugs or maybe like sometimes it wouldn't work or I dont wanna say wouldn't work but sometimes, I dont remember the details but there was some small bugs, but otherwise everything was very nice. I think I email you few times about those small things that I found that could be improved. but otherwise everything was really nice. 
+
+interviewer: yeah,, this thing was still work in progress, so thats why yeah, so which view specifically helped you mostly, so you see there is like multiple views like gantt view, utilization view, and some other views also, so which one?
+
+participant: I was umm, the gantt view was the thing I was using, I didn't use that was the thing I think that I specifically was using. I was working with an application that I needed to know how threads being gone, I needed to make sure that what threads are being on a specific cores, so I used to annotate those and I don't remember I think I was using doing it with vampyre, that's why that's one of the things that I think I mentioned. so I was annotating the functions and I could name them by the name of the core. I was looking at the graphs and I could tell that, that specific thread is where it was supposed to be or not. and when I was umm, hovering over the that specific task, I could see that, the annotation that I put there, and that was very helpful for me. and I think, I dont remember, I think, you did the same thing, I do remember I had a comment about that too, at first when I started because that was the thing that was very important for me at first. but other than that, that wasn't very important , that was for a specific test that I was doing, that was very helpful for me if I had that, but otherwise I think we were just using, or that, um, we were using the utilization tool the cpu utilization, so you know how many cores are engaged or being busy at that time for at the specific time. so that was the 2 important thing that we were using. 
+
+observer: um, just to make sure I am following along when you say threads you mean HPX thread not 
+participant: yes, yes,
+
+interviewer: ok, so um, which of the featurs you liked most?
+
+participant: I think that was the one, the OTF2 traces yeah, the gantt view was the one I liked the most. yeah.
+
+interviewer: so, do you have any other experiences with other performance analysis tools. so yeah, you already mentioned that you used I think you used VTune right?
+
+participant: VTune, I didn't use it so that I tried to use different things that was my problem, because I couldn't use vampyr anymore, and for VTune I needed something to be done in the cluster to be like to use those the visualization tools for, it was for Why did we use that I dont remember what it was exactly, but I couldn't use the one that already on rostam, it required some specific features to be added. I couldn't use VTune for visualizing OTF2 traces. I was looking, OTF2, for vtune, I was using it for troubleshooting to see like this bottlenecks like which funciton takes the longest time, but I didn't really use that much time on VTune. once we figure out Traveler, we were just using Traveler. for the latest paper, for the halide paper I think, at some point we were comparing yourself with VTune because, I don't remember correctly, but that was the time, that was the only time we were using VTune but Traveler was doing everything, was giving us everything that we needed.
+
+interviewer: yeah, I also remember that, like we have some problem like code instrumation, instrumentation related problem with the halide stuffs, so I think you were yeah, I remember that, I also tried to load the trace data with the VTune and visualize that thing and then I think you worked on the instrumation stuffs and make it to work, so that HPX could instrument 
+
+participant: yeah, I remember that. the problem was not in the Traveler. yeah I remember that now yeah, we weren't instrumenting it properly, so we weren't seeing it there, but we tried to use VTune to see make sure that what's going on and then yeah, I remember that now.
+
+interviewer: so how would you compare Traveler with other performance analysis tools.
+
+participant: to be honest, once, I got the results it was very nice, everything was fine, but sometimes finding the right in the menu like how to navigate to the, like you could name the databases, datasets, I guess, and uumm, but sometimes it wasn't very user friendly, it didn't work the way I expected it that was the main thing that was different or the order you could have done you could have taken, you shouldn't have like uncheck something and then that make the graph, sometimes it would make some parts disappear and then you had to just remove it and add it back and then it would come back correctly, that was the only problem, I mean once you had things working it was perfect but there was some very small things like this that could be improved that's what I thinking. 
+
+interviewer: so yeah, even if when I was, like testing Traveler with by myself, I also noticed some of the this kinds of stuffs so yeah, 
+
+participant: another thing, and its not Traveler's part I guess, it was just like umm, some problems with python and with some versions it wasn't working one library, we do have some issues making things work which is specific python version or I think we talked either I or (one of his/her colleagues) emailed you about that, it was just one specific setup it wasn't working but otherwise yes.
+
+observer: so um, so vampyr you were using the trial version, and Traveler, so I think both of them kind of have some load animations, how did you feel about those compared to each other, the responsiveness of redrawing the gantt chart and doing the, like cause you have to do a lot of panning and zooming so how did, so how does that work between the two of them?
+
+participant: I think both Traveler, I didn't notice anything, it was a satisfying as the vampyr, I didn't notice any problems there, it was working fine the same way as I think, multilevel of satisfaction was the same as what I had with vampyr. it was working well. yeah 
+
+observer: all right, great, and just to make sure I understand, you were mostly like navigating the gantt chart, so that you can see individual threads and if they are where they are supposed to be?
+
+participant: yes, one of the task that I was doing, yes, 
+
+observer: so, were you like mostly very zoomed in then cause you needed to see things that the thread level?
+
+participant: I am sorry, clearly, I didn't here you the first.
+
+observer: so its sounds like you needed to be very, very zoomed in right?
+participant: yes, yes
+
+observer: so, and how did you do that, was it through using the utilization view or the scroll, or like how did you get to where you wanted to be?
+
+participant: mostly I was scrolling, but the thing is for that specific task I was creating um, I wasn't creating that many threads, which are HPX threads, so none of them are so high, so I could see things clearly, that was a very specific application I guess. but for the other ones we were just scrolling and we were just zooming out, in and out and it was working fine. 
+
+observer: so are there, can you describe any of the other, like other than that specific task of trying to match threads to cores, like do you have a good sense of what else you were trying to do when you were looking at the gantt chart?
+
+participant: let me think a little bit. I think, I think we were just mostly wanted to see how tasks are being or being distributed onto the cores and just the other thing was that how they are being like the dependencies what happens after this task and how its being, I mean how another core takes that part, the rest of it, being continued on another core, what happened afterwards or. I think the most important thing was the distribution of the tasks among cores, thats the main thing that we were looking for all the applications, or are they being distributed evenly among the cores.
+
+observer: so in Traveler, if you click on some of them, sometimes yellow lines will appear, did you use that part?
+
+participant: we did use it to just make sure things are working trying to understand how things are being, how things are happenning. I think at some point we were just for small test cases we were just make threads smaller and tried to see, then it could be easier to track the thread and the task and see how the, using those yellow lines to see the dependency between tasks and how they are being executed among different cores if there is something, total execution of the tasks, whats happening in general, we did use it, I am not, we didn't go into details, but just as some extra information could be helpful. we didn't use it specifically just to see, but it was giving was some more information. general, general information. 
+
+observer: okay I think that, I was just trying to understand at a very low level, so this is very helpful. [redacted](the interviewer) did you have more questions, sorry I kinda hijack.
+
+interviewer: no, its okay, so yeah, so, uh, which version of Traveler you used, did you remember? like do you use the like what was in the main branch, or did you just forked it or.
+
+participant: what was it again, so which portion of what?
+
+interviewer: so which version of Traveler you used, so did you forked the main branch from the git or just 
+ 
+participant: yes it was the main branch. yes yes it was the main branch.
+
+interviewer: ok so yeah, the thing is that like, so since it was stil in the development process, so some of the features which is which are still in the traveler right now might not be in the like version you may have used previously. so yeah, so did you ever used the task dependency tree or I dont remember actually, so we actually included new view with the tree visualization so you see the parent child dependency when you click on the gantt chart, yellow lines apeears
+
+observer: may be it would be good to share your screen. so you can describe what you are talking about.
+
+interviewer: oh yeah sure, let me then, (opening the traveler heroku link in the browser and sharing screen), I am trying to load the traveler in my browser. yeah, can you see my screen now. 
+
+participant and observer: yes,
+
+interviewer: so I generated this visualization using a trace dataset generated from a kmeans program. I later on developed this view (bring up the dependency tree view), let me brought this up, so we call this thing as a task dependency tree. so have you ever used this thing?
+
+participant: as far as I remember it wasn't very helpful becuase not becuase it wasn't giving us information, becuase we were using it on something, I think we were using it on one of the phylanx, we were not using it, the way I saw it, it was used on a phylanx primitive itself, it wasn't something that you couldnn't see other get that much information from it, I think I was, I did suggested it in one of the meetings that use it on a probably ALS or an algorithm so that it requires different primitives so then we can see get more information out, it wasn't problem of the tree, it was doing what was used I guess. it wasns't that informative for the specific case we had, it could have been more helpful if it was using it another better use case, but I never really used it in, no I actually didn't use it, I just saw it and that's all I thought about it.
+
+observer: yeah, here we are more using it for selection purposes, so if you click on one of the nodes to find things in the gantt chart whichever highlights the most, (the interviewer clicked on a node), yeah that one over there, 
+
+participant: no, I didn't know about that. 
+
+observer: ok
+
+participant: it is all for phylanx, but um but it could in general use in any, so the tree shows you, it depends how you instruemnt your code right? 
+
+observer: it is deriving it from the trace, so its not what the phylanx programs produces thats what katy did back then, this is actually what the um this is just built using the yellow lines then its back built the tree, um as a way of like just selecting things in. alright so. 
+
+interviewer: so yeah, this tree, as [redacted](the observer) mentioned that, we already have the information from the gantt like which is the parent and which is the child of whom, so with that information we just built generated this tree, so yeah. so ofcourse this information is from phylanx's. that's that. and umm (bring up the interval histogram view). so have you ever used this view, this interval histogram view, I think it was not implemented yet when you were working in this but 
+
+participant: I think, I remember you talked about it at the end but I didn't use it no.  even if I used it I would remember it.
+
+interviewer: ok, have you ever used one of the performance counters (bring up the PAPI_TOT_CYC)
+
+participant: no, ooh this is nice. is this new, or have you? does it have it before?
+
+interviewer: this is mostly new but yeah I had similar implementation before back in, I think back in the summer of last year. So what you are seeing now, it is more of a like polished version but it was not like as much nice before, yeah. ok so . and (bring up the CPU IDLE %) then I am guessing that you also didn't use this line chart view.
+
+participant: NO, the two graphs that you had that was the two, that the utilization and the gantt view are the only thing that I used. 
+
+interviewer: ok. 
+
+participant: these are nice.
+
+interviewer: oh thanks. so was there any case, like so did it actually help you in finding out any specific bug in your code? like was there any specific case?
+
+participant: it was the case that the code was not instrumented so, that was the only one. it didn't make sense what you were seeing, didn't make sense, so it helped us in that sense, yes. and uh yeah and actually that case that I talked about it was I was I was using it um, I was using vampyr at that time but I was using to make sure that I implemented the code correctly, that was why I was using it, so that was the main reason actually, so it was helpful in showing the bugs on my code, 
+
+interviewer: so, let me stop the share, do you have nay kind of suggestion, or proposal for was so that we could add any additional feature in here Traveler?
+
+
+participant: I dont think so, you are, you are offering a lot right now, I mean, since the last time I saw it and theres a lot of stuff and features have been added. so I cannot think about anything else right now, no. 
+
+interviewer: ok, thanks so, I don't have anything so [redacted](mentioned observer name) do you have any?
+
+observer: no, no, thank you so much, for taking the time
+
+participant: I hope that was helpful.
+
+observer: yeah, it is really helpful, alright, and it is good seeing you again, congrats on your new position 
+
+participant: thank you so much for developing such a nice, I mean its really good. its very helpful I am, I am sure maybe poeple will actually appreciate what you did. thank you.
+
+observer: ok bye
+
+interviewer: thank you so much, ok bye. 

@@ -1,0 +1,8 @@
+Number - name - email - notify
+P1 - Chuanqiu He - hchuan1@lsu.edu - Yes
+P2 - Srinivas Yadav	- vasusrinivas.vasu14@gmail.com - No
+P3 - Karame Mohammadiporshokooh - kmoham6@lsu.edu - Yes
+P4 - Giannis Gonidelis - pesto801@gmail.com - No (european)
+---------------------------------------
+
+D1 - Shahrzad Shirzad - shahrzadshirzad@gmail.com

@@ -69,9 +69,9 @@ Interview: (15 min)
 - which view helped you mostly to perform the tasks?
 - which feature did you like most?
 - What other tools they have used and how they might compare them?
-- so do you have any additional proposals for any additional features which we could include here?
+- do you have any additional proposals for any additional features which we could include here?
 - Do you have any comment on this?
-
+- how long have you been working with the HPX team?
 
 Debriefing: (5 min)
 So thats all for this evaluation session. So, I am now concluding this session. thank you very much for your time and participation. 
