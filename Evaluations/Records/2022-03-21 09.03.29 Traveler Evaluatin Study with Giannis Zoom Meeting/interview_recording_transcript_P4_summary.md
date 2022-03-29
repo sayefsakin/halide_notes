@@ -19,7 +19,8 @@ Interview:
 - I2: interlinking between the views
 - I3: its awesome, have everything
 - I4: cpu rate inside gantt bars with color coding
-- I5: how to download and use it
+- I5: roughly 2 years
+- I6: how to download and use it
 
 Summary
 ------------------------------
