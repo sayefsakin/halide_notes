@@ -1,0 +1,79 @@
+interviewer: can you please share your screen and then load traveler in your web browser.
+P2: can you see my screen?
+interviewer: yeah. I can see it.
+P2: ok cool.
+interviewer: ok so, now you can use this interface to explore on your own and check the dataset and get familiarized with it. so little bits of heads up, so this is the kmeans dataset, so kmeans, this program is actually running a kmeans algorithm, so which is basically trying to like find out some centroids points from a couple of nodes, couple of bunch of points, so yeah. you dont need to like understand the whole program here, you just need to like get familiarized with the features of the Traveler. like how the execution is happening and so on. **trial: E1**
+P2: one seconds
+interviewer: yeah so no problem. (P2 stoped is video for couple of moments and then come back)
+P2: hello, sorry to interrupt you,
+interviewer: its ok, no problem. 
+P2: yeah ok, yeah like, I understood like what should happen, can you repeat like what I should do?
+interviewer: you just take couple of minutes and explore the dataset and what you notice in the dataset and also ofcourse you can ask me any questions like if you found some anything interesting here.
+P2: ok. (P2 start scrolling in the code view, seems to check the main function and then find the move_centroids function, then looked at the kmeans_t function and follow along the other function). ok what I understood from the code is like, uh, so first it loads the data in the csvs, and it randomly generates like, it chooses a data from the csv file and then, leap of from the kmeans algorithm with the help of these 3 functions, so first we initiazed the centroids, then at each step we tried to move the centroid, (he click the expland icon in the top left and then collapsed it, seems like he wanted to bring the menu, he clicked on the hamburger menu and bring up the task dependency tree, he clicked on run_helper, then clicked on kmeans_t node) I think the most of the computation is happening at this function (pointed to kmeans_t) kmeans_t, thats why I think, it uses cpu more at this time, and what is this doing, (pointing to phylanx_primitive_eval_action), it doesnt have any children.
+interviewer: yeah so, this is just related to phylanx, so the thing is that, this python is being translated using phylanx, this python program is being translated to in physl code, theres like couple of things happening here, so you can consider those things are just auxilary functions, those are not related to the actual code ok. 
+P2: I think I just locate another thread, this is the lambda (pointing to the node in the tree and then checking the code, then bring up the PAPI_L1_DCM), ok so, I just click at the root node. clicked on the root and then kmeans_t node, (hovering over the functional box plot view), so uh, so y-axis indicate it missed 4 times right? 
+interviewer: so yeah, thats an interesting question, so here the data is represented as a rate, if you hover your mouse over the y-axis then you can see that yeah, so the rate is being calculated using. so, basically its just, for example, for two consecutive values, its taking the differnce of those two values, and then divide that by the time, time difference, its basically showing you the rate, 
+P2: its gradient actually 
+interviewer: yeah, you can say that, 
+observer: and the white line here is the average rate across all processors, whereas the um the thick white line is that, whereas you see the range, becuase theres 16 processors, right, so we are not showing 16 lines, we are showing the lowest, the highest, the average, and 1 standard deviation, yeah, becuase time is so huge, we cannot show the individual misses in times, but we can show you some kind of how many misses are happening per time. 
+P2: ok yeah, I got it, yeah. (then he starts browsing the tree view) so like if I want to just, look into the times of just this one, then I should go to this particular parameter, 
+interviewer: you might find the related primitives in here, so since this is a variable so, so most likely you might find it like a slash variable slash centroids like this, 
+P2: (clicked on the centroid node) yeah, I think this one.
+interviewer: yeah
+P2: ok yeah. so does this mean like its not using much of CPU or something.
+interviewer: so, yeah, you see that, this is, there is like couple of branching happening here, for this particular branch there is not much execution happening, you might find this exact primitive in other branch also, in the dependency tree. so.
+P2: yeah, ok. (he brought the interval histogram view  and then reposition the interfaces, dragged theleft most part in there). so the majority of the exectuion is for the kmeans and it is very short. the time interval bars are very short. 
+interviewer: so in the gantt view you can see that, there is very, since you are in a very zoomed-out state, so it might seemed that, theres like um couple of them, but they are actually very smaller one, if you start zoom in then you can find that, If you feel more comfortable then I am going to, I would like to move on to the next task.
+P2: yeap, ok sure. 
+interviewer: can you locate the longest interval bar here? the longest one? **trials: E2**
+P2: ok yeah, I think we get to this one (clicked on the interval histogram view, the view was blank due to a bug, but P2 overcomed by himself by closing both the gantt and interval histogram view, and reopening the interval histogram view) if I just click this one.
+interviewer: ok
+P2: (he highlighted the right most portion from the interval histogram view and then bring up the gantt view and reorganize the views). ok I think this is the one. (pointing to the right interval bar). **E2: successful**
+interviewer: ok yeah. cool. ok then the next task is, can you find the primitive with the highest occurence so in terms of total execution time? **trial: E3**
+P2: highest occurance, ok. (tried clicking on the left most bar in interval histogram view)
+interviewer: a single primitive with highest occurence
+P2: (keep browsing in the interval histogram tried selecting the bars) how do I select this one?
+interviewer: so theres no feature, if you click on a particular bar it will not select anything but if you start click and drag like this, yeah, it will highlight that, highlight it, yeah.
+P2: ok but I dont have a most but I dont know how to zoom in this one.
+interviewer: ok yeah you cannot zoom into the interval histogram view, yeah so there is also no zoom in functionality. **expected: clicked on the interval histgram view to highlight**
+P2: ok like, uh, you want the primitive with highest frequency right like the one which occured most of the time?
+interviewer: yeah **threat: seem to not understand the trial**
+P2: (the gantt view keep loading, he tried to update the highlighting maybe thinking the loading icon will go away, then he bring up the task dependency tree and start browsing it)
+interviewer: so let me uh yeah, let me give you a hint, the task dependency tree will help you here. the dependency tree view, here yeah yeah.
+P2: (keep browsing the tree)
+interviewer: we are running out of time, so I am gonna just say it, so you see the nodes in the interval, task dependency tree are highlighted with different colors, depending on their occurances, the more darker ones mean that it has more higher frequency, **E3: unsuccessful**
+P2: sorry I didn't, sorry I didn't understand
+interviewer: I was saying that, the nodes in the task dependency tree here, they are color coded in terms of their frequency, the higher they have frequency in terms of their total execution time they have a more darker shade, the lighter ones have smaller frequency in terms of total execution time, 
+P2: so this node has highest
+interviewer: so because, you see that, we are now considering a each primitive by its own, so thats why, you know the primitives in the right most part, they have shorter duration, they are very tiny, you can see that easily in the gantt view, but this one it has like a comparatively more longer length
+P2: ok
+interviewer: your next taks is, can you locate the highest CPU utilization and responsible primitive for it? like at which portion of time the cpu utilization is very high compared to the other locations, I mean compared to the other times. **trial: E4**
+P2: this one, (browsed in the correct time form the utilization view)
+interviewer: yeah, can you track down which primitive is causing this?
+P2: ok, (trying to deselect the node which was already beign selected, closed the tree view and repopen that, it was still beign selected) ok so why is this still selected (pointing to that)?
+interviewer: you can click on it again and then it will get unselected. 
+P2: (selected the kmeans_t node) this is the function using most of the time **E4: successful**
+interviewer: ok yeah so this actually this function which's name is kmeans_t its actually like causing the, its actually the main responsible one which is actually calling other functions also which ultimately contributed to the highest cpu utilization. ok 
+P2: so if I click on each node at the level 1, then we get to know, which one is using the most.
+interviewer: yeah, if you keep following the child also you then you can also find out the more specific one. but thats ok. so your last one is um, just a quick task, can you click on the hamburger menu again, then open view then papi, the last one, papi_l1_dcm, and also bring out the l2_dcm similarly, and can you please like zoom out and show the total utilization from the utilization view you can yeah click and drag yeah. so can you find any relationship between the CPU utilization and this level 1 and level 2 data cache miss? **trial: E5**
+P2: yeah, ok, so, ok the CPUs get more utiilized and then I think prediction becomes like not uniform, or so I think uh, the prediction is working for level 1 and CPU utilizes it more, or I think thats what. **E5: comment**
+interviewer: ok thank you. I think that's all of the task I have got for you now. so I just want to know like your experience about using this Traveler interface, so which view specifically helped you most when you performed the tasks? **interview: I1**
+P2: I think uh, this one the utilization view, would help I think that helped me a lot and then the task dependency graph as well because it will get to know which one is useful at one point whats the dependency from there we can get over utilization easily, and uh, even this helps a lot, like performance counters, I think yeah they are more helpful, when we look out for different things. **I1: utilization view, dependency tree view, functional box plot view**
+interviewer: ok. do you have any specific, any prefrence for any specific feature in here? like you liked that feature very, like the feature most? **interview: I2**
+P2: I would definitely say performance counters like we can add more what are available right? yeah so, and the second one is the dependency tree. **I2: visualizing performance counters**
+interviewer: do you have any experience using any other kinds of performance analysis visualization tools? **interview: I3**
+P2: no, this is my first one, **I3: no**
+interviewer: do you have any proposal for any additional features that we could add in here? **interview: I4**
+P2: uh I think, maybe yeah I think, selecting multiple bars at points like, as you said like, for histogram it was available like it shwoing multiple graphs oh bars at once, in the same way like if you can do multiple things at the gantt view or something **I4: selecting multiple bars in gantt view**
+interviewer: so you mean like selecting multiple interval bars at a time in the gantt view right? 
+P2: I have a question, so for python it is I dont know if it is running automatically, but what about c++, if we can do the same thing there? 
+interviewer: yeah you can also run your c++ programs also, so the thing is that yeah, with the c++ you just have to like uh include the related pyhton library, I mean, phylanx libraries and it will work. 
+observer: also I think, the plan with this whole thing is to make sure that it works, with the rest of HPX, so since a lot of HPX , I just realized my camera was off so sorry about that, since HPX is a lot of c++, the point is for it to work, we haven't tested it much becasue we were doing this phylanx projects, but we are happy to work with anybody who wants to use it, I know [redacted](runtime team leader) is interested in that too. 
+P2: so I think we can directly use HPX right, with the trace data, 
+observer: yeah the tree is built of of with the trace data, so it should work. 
+P2: I think I'll definitely use it 
+interviewer: can you please tell us that how long have you been working with [redacted](runtime team leader)? **interview: I5**
+P2: uh its been almost like, I was working with him from last GSoC, so I think its almost an year now. exactly the same time from last year. I have been mostly working on with the vectorization stuffs in HPX and so seeing this kinds of things to analyze we were lacking vectorization so thats what like if I can use performance counters, avecx to work like how many times we use the vector in stack, that would help me a lot, **I5: 1 year**
+observer: also in the hamburger menu the thing right before the papi counters, I think its the HPX counters, metrics, so these are things that were collected with HPX, these are only, in this particular dataset mostly meminfo, type stufs, but I think that anything that can pass through HPX's counters we can also do something with it. 
+P2: oh ok so like, I have been using HPX performance counters directly, oh I think that is wonderful yeah. 
+interviewer: I think we are almost at a time its 9am. so I think thats all for this evaluation session, I am going to stop the recording.

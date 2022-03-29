@@ -1,0 +1,112 @@
+interviewer: could you please share your screen and load the traveler in your browser. 
+P4: can you see it?
+interviewer: yeah I can. thanks. so yeah ok, hear you can see that in the bottom right corner this is a python program, so this python program actually runs a function kmeans algorithm, 
+P4: alright, so its a different dataset.
+interviewer: yeah, its a different dataset and this dataset is generated from an HPX program which runs this kmeans algorithm in a 16 cores. and now take couple of time and explore this dataset.
+P4: so you are going to give me some concrete task right?
+interviewer: yeah later on. so thats why just take some time and 
+P4: I have explored it well, during your tutorial but. uuh just a seconds, comeon (trying to click in the utilization view)
+interviewer: so the highlighitng is now spaned over the whole execution, so if you go to the right most corner or the left most corner of the utilization view, you see that.
+P4: (clicked and dragged the edge of utilization view brush) ooh oh it was highlighted. ok yeah. my problem with this dataset compared to the one you were showcasing your vlog, is that it has very tiny tiny task bars, 
+interviewer: it has very tiney and they are so many of them, so thats why if you are in a zoomed out state you see that theres a long streak of darker bars, but they are actually very, there is a couple of them and they are very smaller ones. 
+P4: ooh okay, alright (clicked on the gantt, browsed the selection info). throw me the tasks. I am ready.
+interviewer: ok cool. so can you locate the longest interval bar here?
+P4: longest interval bar? (clicking on the smaller bars in 0-T15) this one? oh its many, so biggest of those, ooh again its many, so its probably this one, is this the one that I clicked.
+interviewer: you see that, these interval bars are very tiny, I mean their lenght is very small, 
+P4: but this one is big, no, the black one,
+interviewer: if you zoom in more, you can see there is a gap between the executions, you can zoom out faster if you use the highlighitng in the utilization view, in the bar, yeah you can zoom in faster. 
+P4: this one, I am guessing its this one,
+interviewer: so you see you can utilize the other interfaces also like, so we have the interval histogram view, with interval histogram view you can see the intervals depending on their length, like their duration.
+P4: you said interval histogram view
+interviewer: yeah, 
+P4: interval histogram, ooh yeah comeon, yeah I knew that, wait, so the question is that the 
+interviewer: longest one.
+P4: (clicking on the right most bar)
+interviewer: you have to click and drag to highlight that part. 
+P4: I have to what?
+interviewer: click on the empty space and then drag to highlight that part. 
+P4: (pointing to the correct one) so this is the longest one? uuh I am sorry I failed you. 
+interviewer: its ok its ok. its actually
+P4: alright, so run as hpx thread
+interviewer: so I am moving on to the next task then, can you locate the where is the CPU utilization is very high and the responsible primitive for that?
+P4: (zoomed into the highest bar, seemed like got the highest CPU location correctly) I can think of the task dependency tree cause it has the color encoding which shows me the utilization, 
+interviewer: yeah you can use that also, 
+P4: I dont know about those (pointing to the papi metrics) metrics, this is memory, but I dont think there is dependency (start clicking on nodes in the tree) there is dependency from the dependency from the utilization but not vice versa right I mean the view here wount indicate me
+interviewer: yeah it will highlight the at which portion they are getting executed. 
+P4: yes sure but,  
+interviewer: you mean when you click in the gantt view, it is not getting highlighted in the tree right?
+P4: I mean, yeah exactly. so I dont know, should I get, its probably those, so if I zoom in  I can see that this guy, should I expect for a guy to pick up the whole peak here? 
+interview: yeah, its not the whole, not like a single execution, definitiely not a single exeution can casing all of them, since you see that, there is like, so I am expecting you to find out the a single primitive which causes all of these executions to start
+P4: yeah
+observer: so if you look at the selection info view, it will tell you what you clicked on. if you click on a bar it will tell you what it is. 
+P4: yeah, that I know, but I dont know how can I, ooh wait wait, you said the most utilization right? (start browsing the interval histogram) interval duration in nanoseonds.
+observer: so you are correct that are has to most utilization, so its really now like why does it have high utilization.
+P4: I need to find a task that is very very dense, I dont think it has to be long, it has to be, whats this one (dragging the slider in agg gantt view), why dont I have any results here in the aggregated gantt view.
+interviewer: you have to click on the node in the dependency tree.
+P4: hmm alright, come on, I cant find any peak, 
+interviewer: so the thing is that, when you highlight a speific interval bar in the gantt view, it only highlights a single interval bar, ok, so in the utilization view it also highlights the related utilization for that single interval bar. since a interval bar will be getting executed in a specific cpu thread, so it is going to always be one in the utilization view. if click on the nodes in the dependency tree view, you can see the results in the aggregated view also, so for example, yeah, 
+P4: where is the aggreagted, why is it blank,
+interviewer: so if you click on the parent node, you see that they are mostly in the left side, thats why you cannot find them, 
+P4: (clicked on the correct node) so we found the guy. or are we close may be.
+interviewer: yeah (confirming but he went on to find more specific one), uuh I guess its ooh come on, (going throught the children)  (highlighted move_centroid)
+P4: excuse me
+interviewer: I am saying you that, right now you know that which one is getting started at the particular moment when the cpu utilization is very high right? 
+P4: ok so move centroid
+interviewer: ok yeah, its one of the children if you follow along the roots you can find which actually causes the whole thing, so your answer is actually right, so right now I am giving you more context, if you follow along the root, you can see that its actually that kmeans algorithm which actually is starting all of these primitives, its actually the kmeans algorithm and more specifically you must noticed that its the move centroid part. which actually causing the high CPU. ok thats cool ok.
+P4: nice yeah, I need to dig deeper no?
+observer: I think its actually in the higher up the tree, its the first one you clicked, ok move to the left, to the left again, to the left one more, if you click on it, you see you get everything
+P4: ooh I thought you wanted to find this peak over here that I have selected, this particular big 
+interviewer: thats why I was saying that its the kmenas but more specifically its actually the move centroid part. so actually you found out both so its actually cool. ok yeah, so my next part is, can you please now click on the hamburger menu, then open view, then papi, the bottom one, and papi_l1_dcm, and then again, yeah, you can close the aggregated gantt view if you want, then could you please click again on the hamburger menu, then open view, then papi, then papi_l2_dcm, 
+P4: do I need the gantt view? dependency tree
+interviewer: you also need the gantt view, yeah, but no dependency tree. can you please now highlight all the whole execution from the utilization view? just drag the bar. so can you please tell me that, do you find any relationshihp between the utilization and the level 1 and level 2 data cache misses.
+P4: so, I can see a high rate? the rate actually like increases and I dont know if its relevant but its more noisy, its not noisy its actually more misses and less misses, more changes in the misses, when the cpu utilization is high, 
+interviewer: ok
+P4: not exactly the answer you expected? I guess.
+interviewer: no actually, like what you would expect from the code like when you run the code, so is it related to your expectation that it is, is it like expected behavior or is it not?
+P4: ofcourse, since I am computing stuff, I guess I am loading and unloading data, all the more, so I have more cache misses, cause I am actually you know, I am doing computation on data, so I need new data the whole time that I have high clock cpu utilization.
+interviewer: ok cool. so I am moving on to the next task. so this is the last one. so can you find the primitive with the highest occurence in terms of total execution time, so you need to find the specific primitive so which has the highest occurence in terms of total execution time, so let me give you a hint, you can find that out form the task dependency tree,
+P4: I need to find the primitive with 
+interviewer: highest occurence in terms of total exeuction time, 
+P4: when you say primitive you mean, 
+interviewer: basically in the dependency tree, each node represents a specific primitive, 
+P4: well yeah so thats the root but 
+interviewer: you see so, the root is actually a dummy node here, actually the execution is starts from the first level of the children, 
+P4: ok run_helper (clicking on nodes) this is purple-ish (move_centroid) why is this so yellow, so yeah purple, highest occurence time, so this is considered a primitive right? run_as_hpx_threads? but I dont see being, highest occurence time, 
+observer: I think its in part because all of those bars are pretty long when you compare them to the teeny tiny ones from the right, so if you add up all the time, in comparison to all the others, specially cause the others that big mass on the right is actually a bunch of things, its not just the move centroids, calcualte x, do that those are all different kinds of things, so if you think about just one primitive, that takes a lot of time by itself, it thats part with those two yellow peaks. so you got it.
+P4: ooh. I thought you were looking for, uuh my bad, I though you were looking for something that is, initiated, more frequently than the others, it has more higher count. ok so its uh run_as_hpx_threads right 
+interviewer: yeah.
+P4: alright alright. you just left me tourchering there. 
+interviewer: I am sorry for that, so think that concludes all of the tasks, so now we just want to know about your experience using the traveler, so which view specially here helped you mostly to perform the task?
+P4: I would say, the you know its gantt without the dependency tree would not be so much and same goes for the dependency without the gantt, so I needed both, I know that I need both for my work for example, and I know how it'll use in my work, uuuh but if I have to pick only one lets say you remove a feature I would pick, I can find the dependency tree, I like the gantt view.
+interviewer: so do you have any specific preference for any specific feature?
+P4: of the gantt view or in general?
+interviewer: in general.
+P4: well I dont know if its a feature but I love how gantt view corresponds to the utilization view and how the dependency tree corresponds to, yeah I like the linking between the many views thats what I like, so when I see some infromation for some task, I get the corresponding information from the other views. thats what I like.
+interviewer: so you have any proposal for any feature that we can include here?
+P4: excuse me any what?
+interviewer: any proposal, like
+P4: mmm, stealing from VTune, I would say that I like to see, I am sorry I dont know if its more like it, I would say that I would like to see, so VTune has this awesome feature which says this is when the threads been doing something but it has a like it has this shade, and this shade being filled according to if its doing high utilization, so I have my, so they have these two things actually in one so they basically show for example in this bar they showcase here yeah this thing is doing something, but its filled up if its doing high utilization, or if its not filled up just the threads doing you know managerial stuffs, instead of actual computation.
+interviewer: oh I understand yeah 
+P4: thas what I would like to see yeah. 
+observer: is that interesting becuase our model is that if thers a bar there its using the entire CPU but we you'd have to look at the counters to find out how hard its driving, so theres some integration of counters directly with the bars in VTune and we are alwasy happy to learn from VTune. 
+P4: yes, yeah.
+interviewer: my next question is actually to follow up to your answer, so do you have used, you already told me that you used VTune, so do you have experience using other performance analysis tools also?
+P4: VTune is the main one, I used a little bit of gperf, a little bit APEX, just for the dependencies, actually I couldn't even pull these all, AMD Uperf, just because I had problems with my AMD cpu it was awefull, amazingly awefull, which other, I think its one more cannot remmeber what right now, but yeah VTune is what I mainly used.
+interviewer: ok. so overall, you've used couple of other performance analysis tools, so how would you compare those tools with Traveler.
+P4: its not becuase you guys are working with us or something, its just plain amazement, I mean it started with not now, when I see your video tutorial and I was saying well those guys can't do everything right and then you showed me like theres 8 threads and I was like oh I need to scroll up and down all the time, and you say you can go scroll out to see all the threads, at this point ok they have everything I need right now. its pretty amazing and I am not saying that because you are interviewing me right now its very neats the way you integrate all the views into one window its amazing, I dont have to change tabs, the only part I dont know, I haven't investigated it yet, can I download traveler and use it, like locally, or is it upload my data and how does this work?
+interviewer: so I am giving you the github link, so you can download traveler from there, for that also, I dont know if I already said that, you need to generate OTF2 data from your HPX or phylanx program and you have to input that OTF2 data into traveler to visualize that.
+observer: so you've used APEX you would know how to do that, theres an environment variable that will output a trace, 
+P4: alright yeah, [redacted] (Runtime team leader) told me that, [redacted] (Runtime team leader) told me that if you go with APEX, you'll be able to pull of traveler but I haven't done it. my original question was, will it work with HPX, I dont expect you to answer that, I'll try it and I'll tell you actually, I was pretty amazed by the tool, so I am going to use it for sure in my next performance analysis.
+observer: so the phylan program is on pause for now, and the point of traveler is we always wanted to work with all of HPX, so we are really interested in helping people get traveler running so if you run into any issues making run people like [redacte] [redacted]  have some experiene with it, but you can always drop us a line and we are really happy to schedule a zoom to help you get it set up and if you run into any problems we are really interested in making sure it does work well with HPX
+P4: yeah sure, definitiely I am going to go in next time, cause I am getting familiarizd with tool is part of you know a process you dont want to get involved to when you are doing actual research, so now that you guys taught me this and I saw the tutorial and I have a conversation with you, it will be my go to solution. 
+observer: awesome. 
+interviewer: oh thanks. so how long have you been working with HPX?
+P4: uh roughly 2 years, or less maybe, 
+interviewer: so I think we are almost at a time. so before concluding this, do you have any comment, last comment about this?
+P4: so I downloaded it and I used it locally, but theres also a line envirnment that I can upload my dataset or no, cause I was confused with the heroku, website?
+interviewer: so you cannot upload it to heroku, so its a static dataset, so if you go to the github link, you can see that there is a procedure, to like bundle your dataset and how to like visualize that with serve, so theres a details explanantion there, and ofcourse if you have any question just let me know, and I can help you with that, 
+observer: and it takes a little bit of time, the first time you look at a dataset, because its doing a bunch of stuff behind the scene so that when you do open it first time and an additional times it will be fast, so its kind of like you know, you kick of the job and when its ready it tells you and its good from there. 
+P4: ok yeah sure, I mean this tutorial that you guys are doing helps a lot you know encourages the developer to start working with that, because when you open a github pages its like ooh, gooddamn it I need to configure makefiles and everything else, 
+observer: i mean several times we had a zoom meeting, with folks at [redacted] just to sit down and everybody gets like ...
+P4: amazing work congrats.
+observer: thank you so much for your time.

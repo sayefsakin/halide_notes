@@ -66,12 +66,13 @@ E5: Explore CPU utilization relationship with L1 and L2 data cache misses.
 
 
 Interview: (15 min)
-- which view helped you mostly to perform the tasks?
-- which feature did you like most?
-- What other tools they have used and how they might compare them?
-- do you have any additional proposals for any additional features which we could include here?
-- Do you have any comment on this?
-- how long have you been working with the HPX team?
+I1: which view helped you mostly to perform the tasks?
+I2: which feature did you like most?
+I3: What other tools they have used and how they might compare them?
+I4: do you have any additional proposals for any additional features which we could include here?
+I5: how long have you been working with the HPX team?
+I6: Do you have any comment on this?
+
 
 Debriefing: (5 min)
 So thats all for this evaluation session. So, I am now concluding this session. thank you very much for your time and participation. 
